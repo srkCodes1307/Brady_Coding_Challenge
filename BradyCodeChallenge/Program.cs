@@ -1,11 +1,12 @@
 ﻿using BradyCodeChallenge;
+using System.Configuration;
 
 class Program
 {
     static void Main(string[] args)
     {
-        string inputFolderPath = "C:\\Users\\SADIRAJU\\Downloads\\Brady Code Challenge - ETRM - June 2021\\Brady Code Challenge_June 2021";
-        string outputFolderPath = "C:\\Users\\SADIRAJU\\Downloads\\Brady Code Challenge - ETRM - June 2021\\Brady Code Challenge_June 2021";
+        string inputFolderPath = ConfigurationManager.AppSettings["InputFolderPath"];
+        string outputFolderPath = ConfigurationManager.AppSettings["OutputFolderPath"];
         string referenceDataPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ReferenceData.xml");
         FileSystemWatcher watcher = new FileSystemWatcher(inputFolderPath, "*.xml")
         {
